@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="Rails ruby-sample-app: default" uuid="20d97b8e-2c94-425e-a65f-f77e2a7e24ca">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/benemrick</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="Rails ruby-sample-app: development" uuid="0bac0b64-3d1f-4fb9-831b-2a7aef17754e">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/[DEV_DB]</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="Rails ruby-sample-app: test" uuid="7872ceca-e0ca-4ccb-b89c-1f4f9f1c3dfe">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/[TEST_DB]</jdbc-url>
+    </data-source>
+  </component>
+</project>
