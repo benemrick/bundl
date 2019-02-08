@@ -15,6 +15,9 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
+# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
+gem 'webpacker'
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -63,4 +66,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Use Postres as database
 gem 'pg'
 #gem 'rails_12factor', group: :production
+gem 'vuejs-rails', '~> 2.5', '>= 2.5.13'
+gem 'bootstrap', '~> 4.2', '>= 4.2.1'
 
