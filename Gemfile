@@ -65,6 +65,6 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #gem 'rails_12factor', group: :production
-gem 'vuejs-rails', '~> 2.5', '>= 2.5.13'
+#gem 'vuejs-rails', '~> 2.5', '>= 2.5.13'
 gem 'bootstrap', '~> 4.2', '>= 4.2.1'
 
