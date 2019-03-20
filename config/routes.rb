@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
+  get 'collection/index'
   resources :media_items
-  get 'say/hello'
-  get 'say/goodbye'
-
-
   resources :bundls
-  root "bundls#index"
+  
+  root "collection#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

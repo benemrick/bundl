@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @bundl.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @bundl.description %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @bundl.color %>
+</p>
+
+<%= link_to 'Edit', edit_bundl_path(@bundl) %> |
+<%= link_to 'Back', bundls_path %>

@@ -1,11 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Id:</strong>
-  <%= @media_item.id %>
-</p>
-
-<p>
   <strong>Name:</strong>
   <%= @media_item.name %>
 </p>
@@ -25,5 +20,5 @@
   <%= @media_item.source %>
 </p>
 
-<%= link_to 'Edit', edit_media_item_path(@media_item) %> |
-<%= link_to 'Back', media_items_path %>
+<%= link_to 'Edit', edit_media_item_path(@media_item) %> | <%= link_to 'Back',
+media_items_path %>
