@@ -5,7 +5,6 @@ class CreateMediaItems < ActiveRecord::Migration[5.2]
       t.text :description
       t.string :url
       t.string :source
-
       t.timestamps
     end
     add_index :media_items, :id, unique: true

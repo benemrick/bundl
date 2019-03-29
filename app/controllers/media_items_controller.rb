@@ -28,7 +28,7 @@ class MediaItemsController < ApplicationController
 
     respond_to do |format|
       if @media_item.save
-        format.html { redirect_to @media_item, notice: 'Media item was successfully created.' }
+        format.html { redirect_to @media_item, notice: "Media item was successfully created." }
         format.json { render :show, status: :created, location: @media_item }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class MediaItemsController < ApplicationController
   def update
     respond_to do |format|
       if @media_item.update(media_item_params)
-        format.html { redirect_to @media_item, notice: 'Media item was successfully updated.' }
+        format.html { redirect_to @media_item, notice: "Media item was successfully updated." }
         format.json { render :show, status: :ok, location: @media_item }
       else
         format.html { render :edit }
@@ -56,19 +56,20 @@ class MediaItemsController < ApplicationController
   def destroy
     @media_item.destroy
     respond_to do |format|
-      format.html { redirect_to media_items_url, notice: 'Media item was successfully destroyed.' }
+      format.html { redirect_to media_items_url, notice: "Media item was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_media_item
-      @media_item = MediaItem.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def media_item_params
-      params.require(:media_item).permit(:id, :name, :description, :url, :source)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_media_item
+    @media_item = MediaItem.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def media_item_params
+    params.require(:media_item).permit(:id, :name, :description, :url, :source, :bundl_id)
+  end
 end
