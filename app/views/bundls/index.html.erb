@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Bundls</h1>
+<h1>BUNDL</h1>
+<h3>collect what matters</h3>
 
 <table>
   <thead>
@@ -14,18 +15,21 @@
 
   <tbody>
     <% @bundls.each do |bundl| %>
-      <tr>
-        <td><%= bundl.title %></td>
-        <td><%= bundl.description %></td>
-        <td><%= bundl.color %></td>
-        <td><%= link_to 'Show', bundl %></td>
-        <td><%= link_to 'Edit', edit_bundl_path(bundl) %></td>
-        <td><%= link_to 'Destroy', bundl, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <tr>
+      <td><%= bundl.title %></td>
+      <td><%= bundl.description %></td>
+      <td><%= bundl.color %></td>
+      <td><%= link_to 'Show', bundl %></td>
+      <td><%= link_to 'Edit', edit_bundl_path(bundl) %></td>
+      <td>
+        <%= link_to 'Destroy', bundl, method: :delete, data: { confirm: 'Are you
+        sure?' } %>
+      </td>
+    </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
+<br />
 
 <%= link_to 'New Bundl', new_bundl_path %>

@@ -4,12 +4,15 @@ class BundlsController < ApplicationController
   # GET /bundls
   # GET /bundls.json
   def index
-    @bundls = Bundl.all
+    @bundls = Bundl.order(:updated_at)
   end
 
   # GET /bundls/1
   # GET /bundls/1.json
   def show
+    # click on a bundl --> enter and show all media items
+    #TODO get id
+    @items = MediaItem.where(bundl_id: Bundl.id) #list of media items in this bundl
   end
 
   # GET /bundls/new
@@ -28,7 +31,7 @@ class BundlsController < ApplicationController
 
     respond_to do |format|
       if @bundl.save
-        format.html { redirect_to @bundl, notice: 'Bundl was successfully created.' }
+        format.html { redirect_to @bundl, notice: "Bundl was successfully created." }
         format.json { render :show, status: :created, location: @bundl }
       else
         format.html { render :new }
@@ -42,7 +45,7 @@ class BundlsController < ApplicationController
   def update
     respond_to do |format|
       if @bundl.update(bundl_params)
-        format.html { redirect_to @bundl, notice: 'Bundl was successfully updated.' }
+        format.html { redirect_to @bundl, notice: "Bundl was successfully updated." }
         format.json { render :show, status: :ok, location: @bundl }
       else
         format.html { render :edit }
@@ -56,19 +59,20 @@ class BundlsController < ApplicationController
   def destroy
     @bundl.destroy
     respond_to do |format|
-      format.html { redirect_to bundls_url, notice: 'Bundl was successfully destroyed.' }
+      format.html { redirect_to bundls_url, notice: "Bundl was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_bundl
-      @bundl = Bundl.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def bundl_params
-      params.require(:bundl).permit(:title, :description, :color)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_bundl
+    @bundl = Bundl.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def bundl_params
+    params.require(:bundl).permit(:title, :description, :color)
+  end
 end
