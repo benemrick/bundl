@@ -66,10 +66,15 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #gem 'rails_12factor', group: :production
 #gem 'vuejs-rails', '~> 2.5', '>= 2.5.13'
+
+# Front-end presentation logic and reactivity
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'jquery-rails'
 gem 'popper_js', '~> 1.14', '>= 1.14.5'
 gem 'tether-rails'
 gem 'rufo'
+
+# Add referential integrity in database schema
+gem 'immigrant'
 

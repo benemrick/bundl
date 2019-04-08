@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_27_185122) do
+ActiveRecord::Schema.define(version: 2019_04_08_011205) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2019_03_27_185122) do
     t.string "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["id"], name: "index_bundls_on_id", unique: true
   end
 
   create_table "media_items", force: :cascade do |t|
@@ -34,4 +35,5 @@ ActiveRecord::Schema.define(version: 2019_03_27_185122) do
     t.index ["id"], name: "index_media_items_on_id", unique: true
   end
 
+  add_foreign_key "media_items", "bundls"
 end
