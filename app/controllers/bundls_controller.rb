@@ -12,7 +12,7 @@ class BundlsController < ApplicationController
   def show
     # click on a bundl --> enter and show all media items
     #TODO get id
-    @items = MediaItem.where(bundl_id: Bundl.id) #list of media items in this bundl
+    @items = MediaItem.find(params[:id]) #list of media items in this bundl
   end
 
   # GET /bundls/new
