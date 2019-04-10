@@ -10,9 +10,9 @@ class BundlsController < ApplicationController
   # GET /bundls/1
   # GET /bundls/1.json
   def show
-    # click on a bundl --> enter and show all media items
-    #TODO get id
-    @items = MediaItem.find(params[:id]) #list of media items in this bundl
+    # showing a bundl consists of presenting a collection of all the media items within the bundl
+    # retrieve all records in the media_item table with the foreign key equivalent to the current bundle id
+    @items = MediaItem.where("bundl_id = ?", params[:id]) # list of media items in this bundl
   end
 
   # GET /bundls/new

@@ -1,37 +1,38 @@
-<%= form_with(model: media_item, local: true) do |form| %>
-  <% if media_item.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(media_item.errors.count, "error") %> prohibited this media_item from being saved:</h2>
+<%= form_with(model: media_item, local: true) do |form| %> <% if
+media_item.errors.any? %>
+<div id="error_explanation">
+  <h2>
+    <%= pluralize(media_item.errors.count, "error") %> prohibited this
+    media_item from being saved:
+  </h2>
 
-      <ul>
-      <% media_item.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% media_item.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+<div class="field">
+  <%= form.label :name %> <%= form.text_field :name %>
+</div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
+<div class="field">
+  <%= form.label :description %> <%= form.text_area :description %>
+</div>
 
-  <div class="field">
-    <%= form.label :url %>
-    <%= form.text_field :url %>
-  </div>
+<div class="field">
+  <%= form.label :url %> <%= form.text_field :url %>
+</div>
 
-  <div class="field">
-    <%= form.label :source %>
-    <%= form.text_field :source %>
-  </div>
+<div class="field">
+  <%= form.label :source %> <%= form.text_field :source %>
+</div>
+<%= form.hidden_field :bundl_id, :value => params[:bundl_id]%>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<div class="actions">
+  <%= form.submit %>
+</div>
+
 <% end %>

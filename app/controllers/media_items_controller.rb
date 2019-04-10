@@ -3,12 +3,14 @@ class MediaItemsController < ApplicationController
 
   # GET /media_items
   # GET /media_items.json
+  # delete this routing
   def index
     @media_items = MediaItem.all
   end
 
   # GET /media_items/1
   # GET /media_items/1.json
+  # delete this routing
   def show
   end
 
@@ -18,6 +20,7 @@ class MediaItemsController < ApplicationController
   end
 
   # GET /media_items/1/edit
+  # modal form
   def edit
   end
 
