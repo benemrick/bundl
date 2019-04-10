@@ -68,7 +68,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #gem 'vuejs-rails', '~> 2.5', '>= 2.5.13'
 
 # Front-end presentation logic and reactivity
-gem 'bootstrap-sass', '~> 3.2.0'
+gem 'bootstrap', '~> 4.3.1'
+gem 'sprockets-rails', '~> 3.2', '>= 3.2.1'
 gem 'autoprefixer-rails'
 gem 'jquery-rails'
 gem 'popper_js', '~> 1.14', '>= 1.14.5'
