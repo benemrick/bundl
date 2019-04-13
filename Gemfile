@@ -79,3 +79,4 @@ gem 'rufo'
 # Add referential integrity in database schema
 gem 'immigrant'
 
+
