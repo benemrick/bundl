@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Url</th>
+      <th>Source</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @media_items.each do |media_item| %>
+    <tr>
+      <td><%= media_item.name %></td>
+      <td><%= media_item.description %></td>
+      <td><%= media_item.url %></td>
+      <td><%= media_item.source %></td>
+      <td><%= link_to 'Show', media_item %></td>
+      <td><%= link_to 'Edit', edit_media_item_path(media_item) %></td>
+      <td>
+        <%= link_to 'Destroy', media_item, method: :delete, data: { confirm:
+        'Are you sure?' } %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'New Media Item', new_media_item_path %>

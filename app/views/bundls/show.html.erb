@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>
+  <%= @bundl.title %>
+</h1>
+
+<p>
+  <%= @bundl.description %>
+</p>
+
+<h4>
+  Media Items
+</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Source</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @items.each do |item| %>
+    <tr>
+      <td><%= item.name %></td>
+      <td><%= sanitize(item.description) %></td>
+      <td><%= item.source %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'New Media Item', new_media_item_path(bundl_id: @bundl.id) %> | <%=
+link_to 'Edit bundl', edit_bundl_path(@bundl) %> 

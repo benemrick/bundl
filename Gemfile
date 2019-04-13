@@ -17,7 +17,7 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'mini_racer', platforms: :ruby
 
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker'
+#gem 'webpacker'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
@@ -66,5 +66,17 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #gem 'rails_12factor', group: :production
 #gem 'vuejs-rails', '~> 2.5', '>= 2.5.13'
-gem 'bootstrap', '~> 4.2', '>= 4.2.1'
+
+# Front-end presentation logic and reactivity
+gem 'bootstrap', '~> 4.3.1'
+gem 'sprockets-rails', '~> 3.2', '>= 3.2.1'
+gem 'autoprefixer-rails'
+gem 'jquery-rails'
+gem 'popper_js', '~> 1.14', '>= 1.14.5'
+gem 'tether-rails'
+gem 'rufo'
+
+# Add referential integrity in database schema
+gem 'immigrant'
+
 
