@@ -9,20 +9,21 @@
 
 <div class="card-deck">
   <% @bundls.each do |bundl| %>
-  <%= link_to bundl_path(bundl) do %>
-    <div class="card">
-      <div class="card-body">
-        <div class="card-header">
-            Featured
+    <%= link_to bundl_path(bundl) do %>>
+      <div class="card">
+        <div class="card-body">
+          <div class="card-header">
+              <%= get_item_count(bundl.id) %> 
+              <%= is_multiple_items(bundl.id) %>
+          </div>
+          <h5 class="card-title"><%= bundl.title %></h5>
+          <p class="card-text"><%= bundl.description %></p>
+          <div class="card-footer">
+              <small class="text-muted">Last updated on <%= bundl.updated_at.strftime("%B %d") %></small>
+          </div>    
         </div>
-        <h5 class="card-title"><%= bundl.title %></h5>
-        <p class="card-text"><%= bundl.description %></p>
-        <div class="card-footer">
-            <small class="text-muted">Last updated on <%= bundl.updated_at.strftime("%B %d") %></small>
-        </div>    
       </div>
-    </div>
-  <% end %>
+    <% end %>
   <% end %>
 </div>
 

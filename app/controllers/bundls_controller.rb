@@ -72,7 +72,24 @@ class BundlsController < ApplicationController
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
-  def bundl_params
+  def bundl_params()
     params.require(:bundl).permit(:title, :description, :color)
   end
+
+  def get_item_count(id)
+    count = MediaItem.where("bundl_id = ?", id).count
+    return count
+  end
+
+  def is_multiple_items(id)
+    items = "Items"
+    if get_item_count(id) == 1
+      items = "Item"
+    end
+
+    return items
+  end
+
+  helper_method :get_item_count
+  helper_method :is_multiple_items
 end
