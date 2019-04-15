@@ -79,3 +79,5 @@ gem 'rufo'
 # Add referential integrity in database schema
 gem 'immigrant'
 
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
+
