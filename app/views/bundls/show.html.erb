@@ -11,27 +11,20 @@
 <h4>
   Media Items
 </h4>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Source</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @items.each do |item| %>
-    <tr>
-      <td><%= item.name %></td>
-      <td><%= sanitize(item.description) %></td>
-      <td><%= item.source %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<div class="list-group">
+  <% @items.each do |item| %>
+  <a href="<%= item.url%>" class="list-group-item list-group-item-action list-group-item-primary" target="_blank">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1"><%= item.name %></h5>
+      <small> Added on <%= item.updated_at.strftime("%B %d") %></small>
+    </div>
+    <p class="mb-1"><%= sanitize(item.description) %></p>
+    <small><%= item.source %></small>
+  </a>
+  <% end %>
+</div>
+    
 <br />
 
 <%= link_to 'New Media Item', new_media_item_path(bundl_id: @bundl.id) %> | <%=
