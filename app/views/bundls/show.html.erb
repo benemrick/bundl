@@ -1,16 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<h1>
-  <%= @bundl.title %>
-</h1>
+<div class="d-flex flex-row justify-content-between mb-4"> 
+  <h1>
+    <%= @bundl.title %>
+  </h1>
+
+  <%=link_to 'Edit bundl', edit_bundl_path(@bundl) %> 
+
+  <%= link_to 'New Item', 
+  new_media_item_path(bundl_id: @bundl.id), 
+          class: "btn btn-success btn-lg",
+          method: :put %>
+</div> 
 
 <p>
   <%= @bundl.description %>
 </p>
 
-<h4>
+<h5>
   Media Items
-</h4>
+</h5>
 
 <div class="list-group">
   <% @items.each do |item| %>
@@ -27,5 +36,3 @@
     
 <br />
 
-<%= link_to 'New Media Item', new_media_item_path(bundl_id: @bundl.id) %> | <%=
-link_to 'Edit bundl', edit_bundl_path(@bundl) %> 
