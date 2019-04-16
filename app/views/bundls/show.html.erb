@@ -30,6 +30,7 @@
     </div>
     <p class="mb-1"><%= sanitize(item.description) %></p>
     <small><%= item.source %></small>
+    <%= link_to 'Edit', edit_media_item_path(item) %>
   </a>
   <% end %>
 </div>
