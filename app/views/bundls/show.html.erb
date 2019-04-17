@@ -23,17 +23,27 @@
 
 <div class="list-group">
   <% @items.each do |item| %>
-  <a href="<%= item.url%>" class="list-group-item list-group-item-action list-group-item-primary" target="_blank">
+  <li class="list-group-item list-group-item-action list-group-item-light">
     <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1"><%= item.name %></h5>
-      <small> Added on <%= item.updated_at.strftime("%B %d") %></small>
+      <a class="link-to-text-color" href="<%= item.url%>" target="_blank">
+        <h5 class="mb-1" style><%= item.name %></h5>
+      </a>
+      <div class="d-flex justify-content-end">
+        <%= link_to 'Edit', edit_media_item_path(item), class: 'link-to-text-color' %>
+        <%= link_to 'Destroy', item, class: 'link-to-text-color', method: :delete, data: { confirm:
+          'Are you sure?' } %>
+      </div>
     </div>
     <p class="mb-1"><%= sanitize(item.description) %></p>
-    <small><%= item.source %></small>
-    <%= link_to 'Edit', edit_media_item_path(item) %>
-  </a>
+    <div class="d-flex w-100 justify-content-between">
+      <small><%= item.source %></small>
+      <small> Added on <%= item.updated_at.strftime("%B %d") %></small>
+    </div>
+  </li>
   <% end %>
 </div>
     
 <br />
+
+
 
