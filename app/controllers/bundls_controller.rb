@@ -4,7 +4,7 @@ class BundlsController < ApplicationController
   # GET /bundls
   # GET /bundls.json
   def index
-    @bundls = Bundl.order(:updated_at)
+    @bundls = Bundl.order(updated_at: :desc)
   end
 
   # GET /bundls/1
