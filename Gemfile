@@ -81,4 +81,7 @@ gem 'immigrant'
 gem 'font-awesome-sass', '~> 4.2.0'
 # unsplash api to retreive random stock images
 gem 'unsplash'
+# simple form
+gem 'simple_form'
+
 
