@@ -14,8 +14,45 @@
 
 @import "bootstrap";
 @import "tether";
+@import "font-awesome-sprockets";
 @import "font-awesome";
 
 .navbar {
     padding: 0%;
 }
+
+i.fas { 
+    font-family:FontAwesome!important; 
+    font-size: 20px; 
+    font-weight: bold;
+}
+
+i.far { 
+    font-family:FontAwesome!important; 
+    font-size: 20px; 
+    font-weight: bold;
+
+}
+
+
+.slogan {
+    color: #24292e; 
+    font-family: 'Helvetica Neue', sans-serif; 
+    font-size: 50px; 
+    font-weight: bold; 
+    letter-spacing: 5px; 
+    line-height: 1; 
+}
+
+.btn-circle {
+    width: 70px;
+    height: 70px;
+    padding: 0px 0px;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 42px;
+    font-weight: bold;
+    line-height: 1.42857;
+    box-shadow:5px 5px 15px grey;}
+
+.link-to-text-color { color: black; }
