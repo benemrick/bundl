@@ -75,9 +75,10 @@ gem 'jquery-rails'
 gem 'popper_js', '~> 1.14', '>= 1.14.5'
 gem 'tether-rails'
 gem 'rufo'
-
 # Add referential integrity in database schema
 gem 'immigrant'
-
-gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
+# integrate font awesome icons 
+gem 'font-awesome-sass', '~> 4.2.0'
+# unsplash api to retreive random stock images
+gem 'unsplash'
 
