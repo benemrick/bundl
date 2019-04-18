@@ -1,11 +1,39 @@
 <p id="notice"><%= notice %></p>
 
-<div class="d-flex flex-row justify-content-between mb-4"> 
-  <h2 class="slogan ml-3 mt-2">COLLECT.</h2>
-  <%= link_to new_bundl_path do %> 
-    <i class="far fa-plus btn btn-success btn-circle btn-lg"></i> 
-  <% end %>
+<div class="d-flex flex-row justify-content-between mb-3"> 
+  <h2 class="slogan ml-3 mt-3">COLLECT WHAT MATTERS</h2>
+  <i class="far fa-plus btn btn-success btn-circle btn-lg" data-toggle="modal" data-target="#exampleModalCenter"></i> 
+  <!--<%= link_to new_bundl_path do %> 
+    <i class="far fa-plus btn btn-success btn-circle btn-lg" data-toggle="modal" data-target="#exampleModalCenter"></i> 
+  <% end %>-->
 </div> 
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">New bundl</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for(@bundl, html: { class: 'form-inline' }) do |f| %>
+          <%= f.label :title %>
+          <%= f.input_field :title %>
+          <%= f.label :description %>
+          <%= f.input_field :description, as: :text %>
+          <%= f.button :submit, class: "btn btn-primary" %>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="d-flex flex-wrap">
   <% @bundls.each do |bundl| %>
