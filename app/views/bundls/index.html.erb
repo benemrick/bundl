@@ -1,42 +1,39 @@
 <p id="notice"><%= notice %></p>
 
 <div class="d-flex flex-row justify-content-between mb-4"> 
-  <h2 class="ml-3 mt-2">Collect What Matters</h2>
-  <%= link_to 'New bundl', 
-      new_bundl_path, 
-      class: "btn btn-success btn-circle btn-lg",
-      method: :put %>
+  <h2 class="slogan ml-3 mt-2">COLLECT.</h2>
+  <%= link_to new_bundl_path do %> 
+    <i class="far fa-plus btn btn-success btn-circle btn-lg"></i> 
+  <% end %>
 </div> 
-
-<div>
-    <i class="fas fa-home"></i>
-</div>
 
 <div class="d-flex flex-wrap">
   <% @bundls.each do |bundl| %>
     <div class="col-auto mb-4">
-      <div class="card" style="width: 20rem; height:20rem;">
-        <%= image_tag("iceland.jpg", class: "card-img-top", id: "iceland", :size => "5x100") %>
-        <!--<img src="iceland.jpg" class="card-img-top" alt="iceland">-->
+      <div class="card" style="width: 20rem; height:25rem;">
+        <!--Unsplash::Photo.search(bundl.title).sample[:urls][:raw]-->
+        <!--"https://source.unsplash.com/1600x900/?utah"-->
+        <%= image_tag Unsplash::Photo.search(bundl.title).sample[:urls][:regular], class: "card-img-top", id: "unsplash", :size => "90x200" %>
         <div class="card-body">
-          <div class="d-flex justify-content-between mb-4">
+          <div class="d-flex justify-content-between mb-3">
             <div>
               <%= get_item_count(bundl.id) %> 
               <%= is_multiple_items(bundl.id) %>
-              <%= link_to 'Edit', edit_bundl_path(bundl) %>
             </div>
             <div class="d-flex justify-content-end">
-              <%= link_to 'Destroy', bundl, method: :delete, data: { confirm:
-                'Are you sure?' } %>
+              <%= link_to '<i class="far fa-edit link-to-text-color"></i>'.html_safe, edit_bundl_path(bundl) %>
             </div>
-           
           </div>
           <%= link_to bundl_path(bundl) do %>
-            <h5 class="card-title"><%= bundl.title %></h5>
+            <h5 class="card-title link-to-text-color"><%= bundl.title[0,20] %></h5>
           <% end %>
-          <p class="card-text"><%= bundl.description %></p>
-          <div class="mt-7">
-            <small class="text-muted">Last updated on <%= bundl.updated_at.strftime("%B %d") %></small>
+          <p class="card-text"><%= bundl.description[0,70] %></p>
+          <div class="d-flex justify-content-between mb-3">
+            <div class="mt-7">
+              <small class="text-muted">Last updated on <%= bundl.updated_at.strftime("%B %d") %></small>
+            </div>
+            <%= link_to '<i class="far fa-trash link-to-text-color"></i>'.html_safe, bundl, method: :delete, data: { confirm:
+              'Are you sure?' } %>
           </div>
         </div>
       </div>

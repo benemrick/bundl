@@ -4,13 +4,8 @@
   <h1>
     <%= @bundl.title %>
   </h1>
-
-  <%=link_to 'Edit bundl', edit_bundl_path(@bundl) %> 
-
-  <%= link_to 'New Item', 
-  new_media_item_path(bundl_id: @bundl.id), 
-          class: "btn btn-success btn-lg",
-          method: :put %>
+  <%= link_to '<i class="far fa-plus btn btn-success btn-circle btn-lg"></i>'.html_safe, 
+  new_media_item_path(bundl_id: @bundl.id), method: :put %>
 </div> 
 
 <p>
@@ -24,15 +19,15 @@
 <div class="list-group">
   <% @items.each do |item| %>
   <li class="list-group-item list-group-item-action list-group-item-light">
-    <div class="d-flex w-100 justify-content-between">
+    <div class="d-flex w-100 justify-content-start">
       <a class="link-to-text-color" href="<%= item.url%>" target="_blank">
         <h5 class="mb-1" style><%= item.name %></h5>
       </a>
-      <div class="d-flex justify-content-end">
-        <%= link_to 'Edit', edit_media_item_path(item), class: 'link-to-text-color' %>
-        <%= link_to 'Destroy', item, class: 'link-to-text-color', method: :delete, data: { confirm:
-          'Are you sure?' } %>
-      </div>
+      <%= link_to '<i class="far fa-edit link-to-text-color ml-3"></i>'.html_safe, edit_media_item_path(item) %>
+    </div>
+    <div class="d-flex justify-content-end">
+      <%= link_to '<i class="far fa-trash link-to-text-color"></i>'.html_safe, item, method: :delete, data: { confirm:
+        'Are you sure?' } %>
     </div>
     <p class="mb-1"><%= sanitize(item.description) %></p>
     <div class="d-flex w-100 justify-content-between">
