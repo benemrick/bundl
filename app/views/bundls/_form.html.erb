@@ -1,4 +1,4 @@
-<%= form_with(model: bundl, local: true) do |form| %>
+<!--<%= form_with(model: bundl, local: true) do |form| %>
   <% if bundl.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(bundl.errors.count, "error") %> prohibited this bundl from being saved:</h2>
@@ -29,4 +29,12 @@
   <div class="actions">
     <%= form.submit %>
   </div>
+<% end %>-->
+
+<%= simple_form_for @bundl do |f| %>
+  <%= f.label :title %>
+  <%= f.input_field :title %>
+  <%= f.label :description %>
+  <%= f.input_field :description, as: :text %>
+  <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
