@@ -2,14 +2,16 @@
 
 <div class="d-flex flex-row justify-content-between mb-3"> 
   <h2 class="slogan ml-3 mt-3">COLLECT WHAT MATTERS</h2>
-  <i class="far fa-plus btn btn-success btn-circle btn-lg" data-toggle="modal" data-target="#exampleModalCenter"></i> 
-  <!--<%= link_to new_bundl_path do %> 
-    <i class="far fa-plus btn btn-success btn-circle btn-lg" data-toggle="modal" data-target="#exampleModalCenter"></i> 
-  <% end %>-->
+  <!-- <%= button_to raw("<i class=\"far fa-plus\"></i>"), 
+      new_bundl_path, class: "btn btn-success btn-circle btn-lg" %>
+</div> -->
+  <%= link_to new_bundl_path, class:'btn btn-success btn-circle btn-lg' do %> 
+    <i class="fas fa-plus" data-toggle="modal" data-target="#newBundl"></i> 
+  <% end %>
 </div> 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="newBundl" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -19,13 +21,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for(@bundl, html: { class: 'form-inline' }) do |f| %>
-          <%= f.label :title %>
-          <%= f.input_field :title %>
-          <%= f.label :description %>
-          <%= f.input_field :description, as: :text %>
-          <%= f.button :submit, class: "btn btn-primary" %>
-        <% end %>
+        
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -38,12 +34,10 @@
 <div class="d-flex flex-wrap">
   <% @bundls.each do |bundl| %>
     <div class="col-auto mb-4">
-      <div class="card" style="width: 20rem; height:25rem;">
-        <!--Unsplash::Photo.search(bundl.title).sample[:urls][:raw]-->
-        <!--"https://source.unsplash.com/1600x900/?utah"-->
+      <div class="card">
         <%= image_tag Unsplash::Photo.search(bundl.title).sample[:urls][:regular], class: "card-img-top", id: "unsplash", :size => "90x200" %>
         <div class="card-body">
-          <div class="d-flex justify-content-between mb-3">
+          <div class="d-flex justify-content-between mb-2">
             <div>
               <%= get_item_count(bundl.id) %> 
               <%= is_multiple_items(bundl.id) %>
