@@ -1,33 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<div class="d-flex flex-row justify-content-between mb-4"> 
+<div class="d-flex flex-row justify-content-between mb-1"> 
   <h1>
     <%= @bundl.title %>
   </h1>
-  <%= link_to '<i class="far fa-plus btn btn-success btn-circle btn-lg"></i>'.html_safe, 
-  new_media_item_path(bundl_id: @bundl.id), method: :put %>
+  <%= link_to new_media_item_path(bundl_id: @bundl.id), class:'btn btn-success btn-circle btn-lg' do %> 
+    <i class="fas fa-plus" data-toggle="modal" data-target="#exampleModalCenter"></i> 
+  <% end %>
 </div> 
 
-<p>
-  <%= @bundl.description %>
-</p>
+<div>
+  <p><%= @bundl.description %></p>
+</div>
 
-<h5>
-  Media Items
-</h5>
-
+<h5 class="mt-4 mb-2">Media Items</h5>
 <div class="list-group">
   <% @items.each do |item| %>
   <li class="list-group-item list-group-item-action list-group-item-light">
-    <div class="d-flex w-100 justify-content-start">
-      <a class="link-to-text-color" href="<%= item.url%>" target="_blank">
-        <h5 class="mb-1" style><%= item.name %></h5>
-      </a>
-      <%= link_to '<i class="far fa-edit link-to-text-color ml-3"></i>'.html_safe, edit_media_item_path(item) %>
-    </div>
-    <div class="d-flex justify-content-end">
-      <%= link_to '<i class="far fa-trash link-to-text-color"></i>'.html_safe, item, method: :delete, data: { confirm:
-        'Are you sure?' } %>
+    <div class="d-flex justify-content-between mb-2">
+      <div class="d-flex w-100 justify-content-start">
+        <a class="link-to-text-color" href="<%= item.url%>" target="_blank">
+          <h5><%= item.name %></h5>
+        </a>
+        <%= link_to '<i class="far fa-edit link-to-text-color ml-3"></i>'.html_safe, edit_media_item_path(item) %>
+      </div>
+      <div class="d-flex justify-content-end">
+        <%= link_to '<i class="far fa-trash link-to-text-color"></i>'.html_safe, item, method: :delete, data: { confirm:
+          'Are you sure?' } %>
+      </div>
     </div>
     <p class="mb-1"><%= sanitize(item.description) %></p>
     <div class="d-flex w-100 justify-content-between">
