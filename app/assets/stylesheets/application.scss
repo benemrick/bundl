@@ -23,15 +23,21 @@
 
 i.fas { 
     font-family:FontAwesome!important; 
-    font-size: 30px; 
+    font-size: 25px; 
     font-weight: bold;
     font-style: normal;
+}
+
+a.far {
+    font-family:FontAwesome!important; 
+    font-size: 20px; 
+    font-style: normal;
+    cursor: pointer;
 }
 
 i.far { 
     font-family:FontAwesome!important; 
     font-size: 20px; 
-    font-weight: bold;
     font-style: normal;
 }
 
@@ -51,14 +57,19 @@ i.far {
 }
 
 .btn-circle {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     padding: 0px 0px;
     border-radius: 50px;
     text-align: center;
-    font-size: 42px;
     font-weight: bold;
     line-height: 1.42857;
     box-shadow:5px 5px 15px grey;}
 
 .link-to-text-color { color: black; }
+
+abbr[title] {
+    border-bottom: none !important;
+    cursor: inherit !important;
+    text-decoration: none !important;
+  }
