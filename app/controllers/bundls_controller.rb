@@ -5,6 +5,7 @@ class BundlsController < ApplicationController
   # GET /bundls.json
   def index
     @bundls = Bundl.order(updated_at: :desc)
+    @bundl_new = Bundl.new
   end
 
   # GET /bundls/1
@@ -59,7 +60,7 @@ class BundlsController < ApplicationController
   def destroy
     @bundl.destroy
     respond_to do |format|
-      format.html { redirect_to bundls_url, notice: "Bundl was successfully destroyed." }
+      format.html { redirect_to bundls_url }
       format.json { head :no_content }
     end
   end
@@ -78,6 +79,9 @@ class BundlsController < ApplicationController
 
   def get_item_count(id)
     count = MediaItem.where("bundl_id = ?", id).count
+    if count == 0
+      return "No"
+    end
     return count
   end
 

@@ -6,6 +6,7 @@ class MediaItemsController < ApplicationController
   # delete this routing
   def index
     @media_items = MediaItem.all
+    @media_item_new = MediaItem.new
   end
 
   # GET /media_items/1
@@ -59,7 +60,7 @@ class MediaItemsController < ApplicationController
   def destroy
     @media_item.destroy
     respond_to do |format|
-      format.html { redirect_to media_items_url, notice: "Media item was successfully destroyed." }
+      format.html { redirect_back fallback_location: root_path }
       format.json { head :no_content }
     end
   end
