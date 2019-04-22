@@ -6,7 +6,6 @@ class MediaItemsController < ApplicationController
   # delete this routing
   def index
     @media_items = MediaItem.all
-    @media_item_new = MediaItem.new
   end
 
   # GET /media_items/1
@@ -18,11 +17,13 @@ class MediaItemsController < ApplicationController
   # GET /media_items/new
   def new
     @media_item = MediaItem.new
+    session[:return_to] ||= request.referer
   end
 
   # GET /media_items/1/edit
   # modal form
   def edit
+    session[:return_to] ||= request.referer
   end
 
   # POST /media_items
@@ -32,8 +33,8 @@ class MediaItemsController < ApplicationController
 
     respond_to do |format|
       if @media_item.save
-        format.html { redirect_to @media_item, notice: "Media item was successfully created." }
-        format.json { render :show, status: :created, location: @media_item }
+        format.html { redirect_to session.delete(:return_to) }
+        format.json { head :no_content }
       else
         format.html { render :new }
         format.json { render json: @media_item.errors, status: :unprocessable_entity }
@@ -46,8 +47,8 @@ class MediaItemsController < ApplicationController
   def update
     respond_to do |format|
       if @media_item.update(media_item_params)
-        format.html { redirect_to @media_item, notice: "Media item was successfully updated." }
-        format.json { render :show, status: :ok, location: @media_item }
+        format.html { redirect_to session.delete(:return_to) }
+        format.json { head :no_content }
       else
         format.html { render :edit }
         format.json { render json: @media_item.errors, status: :unprocessable_entity }
