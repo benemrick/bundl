@@ -5,7 +5,7 @@ class BundlsController < ApplicationController
   # GET /bundls.json
   def index
     @bundls = Bundl.order(updated_at: :desc)
-    @bundl_new = Bundl.new
+    # @bundl_new = Bundl.new
   end
 
   # GET /bundls/1
@@ -13,7 +13,7 @@ class BundlsController < ApplicationController
   def show
     # showing a bundl consists of presenting a collection of all the media items within the bundl
     # retrieve all records in the media_item table with the foreign key equivalent to the current bundle id
-    @items = MediaItem.where("bundl_id = ?", params[:id]) # list of media items in this bundl
+    @items = MediaItem.where("bundl_id = ?", params[:id]).order(updated_at: :desc) # list of media items in this bundl
   end
 
   # GET /bundls/new
@@ -32,7 +32,7 @@ class BundlsController < ApplicationController
 
     respond_to do |format|
       if @bundl.save
-        format.html { redirect_to @bundl, notice: "Bundl was successfully created." }
+        format.html { redirect_to @bundl}
         format.json { render :show, status: :created, location: @bundl }
       else
         format.html { render :new }
@@ -46,8 +46,8 @@ class BundlsController < ApplicationController
   def update
     respond_to do |format|
       if @bundl.update(bundl_params)
-        format.html { redirect_to @bundl, notice: "Bundl was successfully updated." }
-        format.json { render :show, status: :ok, location: @bundl }
+        format.html { redirect_back fallback_location: root_path }
+        format.json { head :no_content }
       else
         format.html { render :edit }
         format.json { render json: @bundl.errors, status: :unprocessable_entity }
@@ -94,6 +94,11 @@ class BundlsController < ApplicationController
     return items
   end
 
+  def is_media_items?(id)
+    count = MediaItem.where("bundl_id = ?", id).count
+  end
+
   helper_method :get_item_count
   helper_method :is_multiple_items
+  helper_method :is_media_items?
 end
