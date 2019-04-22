@@ -24,8 +24,8 @@
 i.fas { 
     font-family:FontAwesome!important; 
     font-size: 25px; 
-    font-weight: bold;
     font-style: normal;
+    vertical-align: middle;
 }
 
 a.far {
@@ -50,21 +50,28 @@ i.far {
 .slogan {
     color: #24292e; 
     font-family: 'Helvetica Neue', sans-serif; 
-    font-size: 30px; 
+    font-size: 25px; 
     font-weight: bold; 
     letter-spacing: 5px; 
     line-height: 1; 
 }
 
+.position-right{
+    float: right;
+}
+
 .btn-circle {
     width: 60px;
     height: 60px;
-    padding: 0px 0px;
+    padding: 12px;
     border-radius: 50px;
     text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
     font-weight: bold;
     line-height: 1.42857;
-    box-shadow:5px 5px 15px grey;}
+    box-shadow:5px 5px 15px grey;
+}
 
 .link-to-text-color { color: black; }
 
