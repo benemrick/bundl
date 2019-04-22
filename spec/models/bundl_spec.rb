@@ -1,3 +1,5 @@
+# Test validity of Bundl model
+
 require "spec_helper"
 
 RSpec.describe Bundl, :type => :model do
