@@ -2,4 +2,4 @@
 
 <%= render 'form', media_item: @media_item %>
 
-<%= link_to 'Cancel', bundl_path %> <!--Go back to current bundl/show-->
+<%= link_to 'Cancel', bundl_path(params[:bundl_id]) %> <!--Go back to current bundl/show-->
