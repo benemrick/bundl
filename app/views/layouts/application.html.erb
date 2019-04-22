@@ -10,7 +10,10 @@
 
   <body>
     
-    <%= render 'partials/nav'%>
+    <% unless action_name == "bundl#new" || action_name == "bundl#edit" %>
+      <%= render 'partials/nav'%>
+    <% end %>
+
     <div class="container">
       <%= yield %>
     </div>

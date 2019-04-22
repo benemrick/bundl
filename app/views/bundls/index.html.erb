@@ -2,15 +2,18 @@
 
 <div class="d-flex flex-row justify-content-between mb-3"> 
   <h2 class="slogan ml-3 mt-3">COLLECT WHAT MATTERS</h2>
-  <button class="btn btn-success btn-circle btn-lg">
-    <i class="fas fa-plus" data-toggle="modal" data-target="#newBundl"></i> 
-  </button>
+  <%= link_to new_bundl_path, class: "btn btn-success btn-circle", :remote => true do %>
+    <i id="newBundlIcon" class="fas fa-plus"></i> 
+  <% end %>
+  <!-- data-toggle="modal" data-target="#newBundl" data-remote="<%= new_bundl_path %>" -->
+  <!-- <button class="btn btn-success btn-circle btn-lg">
+    <i id="newBundlIcon" class="fas fa-plus" data-toggle="modal" data-target="#newBundl" data-remote="<%= new_bundl_path %>"></i> 
+  </button> -->
 </div> 
 
 <!-- Create New bundl Modal -->
 <div class="modal fade" id="newBundl" tabindex="-1" role="dialog" aria-labelledby="newBundlModal" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <%= simple_form_for @bundl_new do |f| %>
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="newBundlCenterTitle">New bundl</h5>
@@ -19,15 +22,9 @@
           </button>
         </div>
         <div class="modal-body">
-            <%= f.input :title, required: true, placeholder: 'Ex. Cars, Sports, Programming', label: 'Title', error: 'Title is mandatory, please specify one' %>
-            <%= f.input :description, as: :text, required: true, label: 'Description', error: 'Description is mandatory, please specify one' %>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <%= f.button :submit, class: "btn btn-success" %>
+           <!--render partial form-->
         </div>
       </div>
-    <% end %>
   </div>
 </div>
 
@@ -42,15 +39,11 @@
           </button>
         </div>
         <div class="modal-body">
-            
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <!--render partial form-->
         </div>
       </div>
   </div>
 </div>
-  
 
 <div class="d-flex flex-wrap">
   <% @bundls.each do |bundl| %>
@@ -64,7 +57,10 @@
               <%= is_multiple_items(bundl.id) %>
             </div>
             <div class="d-flex justify-content-end">
-              <a data-toggle="modal" data-target="#editBundl" data-remote="<%= edit_bundl_path(bundl) %>" class="far fa-edit link-to-text-color"></a>
+              <%= link_to edit_bundl_path(bundl), :remote => true do %>
+                <i id="bundlEditIcon" class="far fa-edit link-to-text-color"></i> 
+              <% end %>
+              <!-- <a id="bundlEditIcon" data-toggle="modal" data-target="#editBundl" data-remote="<%= edit_bundl_path(bundl) %>" class="far fa-edit link-to-text-color"></a> -->
             </div>
           </div>
           <%= link_to bundl_path(bundl) do %>

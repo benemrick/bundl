@@ -1,7 +1,7 @@
-<h1>Add Item</h1>
+<h1 class="mt-4">New Media Item</h1>
 
 <%= render 'form', media_item: @media_item %>
 
-<div class="mt-3">
-    <%= link_to 'Cancel', @bundl %>
-</div>
+<%= link_to 'Cancel', bundl_path(params[:bundl_id]) %> <!--Go back to current bundl/show-->
+
+
