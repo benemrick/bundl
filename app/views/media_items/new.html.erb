@@ -1,5 +1,7 @@
-<h1>New Media Item</h1>
+<h1 class="mt-4">New Media Item</h1>
 
 <%= render 'form', media_item: @media_item %>
 
-<%= link_to 'Back', media_items_path %>
+<%= link_to 'Cancel', bundl_path(params[:bundl_id]) %> <!--Go back to current bundl/show-->
+
+

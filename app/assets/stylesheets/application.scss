@@ -14,3 +14,69 @@
 
 @import "bootstrap";
 @import "tether";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+.navbar {
+    padding: 0%;
+}
+
+i.fas { 
+    font-family:FontAwesome!important; 
+    font-size: 25px; 
+    font-style: normal;
+    vertical-align: middle;
+}
+
+a.far {
+    font-family:FontAwesome!important; 
+    font-size: 20px; 
+    font-style: normal;
+    cursor: pointer;
+}
+
+i.far { 
+    font-family:FontAwesome!important; 
+    font-size: 20px; 
+    font-style: normal;
+}
+
+.card{
+    width: 20rem; 
+    height:25rem;
+}
+
+
+.slogan {
+    color: #24292e; 
+    font-family: 'Helvetica Neue', sans-serif; 
+    font-size: 25px; 
+    font-weight: bold; 
+    letter-spacing: 5px; 
+    line-height: 1; 
+}
+
+.position-right{
+    float: right;
+}
+
+.btn-circle {
+    width: 60px;
+    height: 60px;
+    padding: 12px;
+    border-radius: 50px;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    font-weight: bold;
+    line-height: 1.42857;
+    box-shadow:5px 5px 15px grey;
+}
+
+.link-to-text-color { color: black; }
+
+abbr[title] {
+    border-bottom: none !important;
+    cursor: inherit !important;
+    text-decoration: none !important;
+  }

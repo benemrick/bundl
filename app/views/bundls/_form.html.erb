@@ -1,32 +1,6 @@
-<%= form_with(model: bundl, local: true) do |form| %>
-  <% if bundl.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(bundl.errors.count, "error") %> prohibited this bundl from being saved:</h2>
-
-      <ul>
-      <% bundl.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :color %>
-    <%= form.text_field :color %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<%= simple_form_for @bundl do |f| %>
+  <%= f.input :title, required: true, placeholder: 'Ex. Cars, Sports, Programming', label: 'Title', error: 'Title is mandatory, please specify one' %>
+  <%= f.input :description, as: :text, required: true, label: 'Description', error: 'Description is mandatory, please specify one' %>
+  <%= f.button :submit, class: "btn btn-success position-right" %>
 <% end %>
+

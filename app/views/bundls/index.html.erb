@@ -1,38 +1,84 @@
 <p id="notice"><%= notice %></p>
 
+<div class="d-flex flex-row justify-content-between mb-3"> 
+  <h2 class="slogan ml-3 mt-3">COLLECT WHAT MATTERS</h2>
+  <%= link_to new_bundl_path, class: "btn btn-success btn-circle", :remote => true do %>
+    <i id="newBundlIcon" class="fas fa-plus"></i> 
+  <% end %>
+  <!-- data-toggle="modal" data-target="#newBundl" data-remote="<%= new_bundl_path %>" -->
+  <!-- <button class="btn btn-success btn-circle btn-lg">
+    <i id="newBundlIcon" class="fas fa-plus" data-toggle="modal" data-target="#newBundl" data-remote="<%= new_bundl_path %>"></i> 
+  </button> -->
+</div> 
 
-<form class="form-inline my-2 my-lg-0">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-</form>
+<!-- Create New bundl Modal -->
+<div class="modal fade" id="newBundl" tabindex="-1" role="dialog" aria-labelledby="newBundlModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="newBundlCenterTitle">New bundl</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+           <!--render partial form-->
+        </div>
+      </div>
+  </div>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Color</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<!-- Edit bundl Modal -->
+<div class="modal fade" id="editBundl" tabindex="-1" role="dialog" aria-labelledby="editBundlModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editBundlTitle">Edit</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <!--render partial form-->
+        </div>
+      </div>
+  </div>
+</div>
 
-  <tbody>
-    <% @bundls.each do |bundl| %>
-    <tr>
-      <td><%= bundl.title %></td>
-      <td><%= bundl.description %></td>
-      <td><%= bundl.color %></td>
-      <td><%= link_to 'Show', bundl %></td>
-      <td><%= link_to 'Edit', edit_bundl_path(bundl) %></td>
-      <td>
-        <%= link_to 'Destroy', bundl, method: :delete, data: { confirm: 'Are you
-        sure?' } %>
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="d-flex flex-wrap">
+  <% @bundls.each do |bundl| %>
+    <div class="col-auto mb-4">
+      <div class="card">
+        <%= image_tag Unsplash::Photo.search(bundl.title).sample[:urls][:regular], class: "card-img-top", id: "unsplash", :size => "90x200" %>
+        <div class="card-body">
+          <div class="d-flex justify-content-between mb-2">
+            <div>
+              <%= get_item_count(bundl.id) %> 
+              <%= is_multiple_items(bundl.id) %>
+            </div>
+            <div class="d-flex justify-content-end">
+              <%= link_to edit_bundl_path(bundl), :remote => true do %>
+                <i id="bundlEditIcon" class="far fa-edit link-to-text-color"></i> 
+              <% end %>
+              <!-- <a id="bundlEditIcon" data-toggle="modal" data-target="#editBundl" data-remote="<%= edit_bundl_path(bundl) %>" class="far fa-edit link-to-text-color"></a> -->
+            </div>
+          </div>
+          <%= link_to bundl_path(bundl) do %>
+            <h5 class="card-title link-to-text-color"><%= bundl.title[0,20] %></h5>
+          <% end %>
+          <p class="card-text"><%= bundl.description[0,70] %></p>
+          <div class="d-flex justify-content-between mb-3">
+            <div class="mt-7">
+              <small class="text-muted">Last updated on <%= bundl.updated_at.strftime("%B %d") %></small>
+            </div>
+            <%= link_to '<i class="far fa-trash link-to-text-color"></i>'.html_safe, bundl, method: :delete, data: { confirm:
+              'Are you sure?' } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
 
 <br />
 
-<%= link_to 'New Bundl', new_bundl_path %>

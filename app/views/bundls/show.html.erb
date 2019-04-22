@@ -1,38 +1,92 @@
 <p id="notice"><%= notice %></p>
 
-<h1>
-  <%= @bundl.title %>
-</h1>
+<div class="d-flex flex-row justify-content-between mb-1"> 
+  <h1>
+    <%= @bundl.title %>
+  </h1>
+  <!-- <button class="btn btn-success btn-circle btn-lg">
+      <i class="fas fa-plus mb-5" data-toggle="modal" data-target="#newMediaItem"></i> 
+  </button> -->
+  <%= link_to new_media_item_path(bundl_id: @bundl.id), class:'btn btn-success btn-circle' do %> 
+    <i class="fas fa-plus"></i> 
+  <% end %>
+</div> 
 
-<p>
-  <%= @bundl.description %>
-</p>
+<div>
+  <p><%= @bundl.description %></p>
+</div>
 
-<h4>
-  Media Items
-</h4>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Source</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<!-- Create New Media Item Modal -->
+<div class="modal fade" id="newMediaItem" tabindex="-1" role="dialog" aria-labelledby="newMediaItemModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="newMediaItemModalTitle">New Media Item</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <!--render partial form-->
+      </div>
+    </div>
+  </div>
+</div>
+    
+    <!-- Edit bundl Modal -->
+<div class="modal fade" id="editMediaItem" tabindex="-1" role="dialog" aria-labelledby="editMediaItemModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editMediaItemTitle">Edit</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <!--render partial form-->
+      </div>
+    </div>
+  </div>
+</div>
 
-  <tbody>
-    <% @items.each do |item| %>
-    <tr>
-      <td><%= item.name %></td>
-      <td><%= sanitize(item.description) %></td>
-      <td><%= item.source %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<div>
+  <h5 class="mt-5">
+    <%= get_item_count(@bundl.id) %> 
+    <%= is_multiple_items(@bundl.id) %>
+  </h5>
+</div>
 
+
+<div class="list-group">
+  <% @items.each do |item| %>
+  <li class="list-group-item list-group-item-action list-group-item-light">
+    <div class="d-flex justify-content-between mb-2">
+      <div class="d-flex w-100 justify-content-start">
+        <a class="link-to-text-color" href="<%= item.url%>" target="_blank">
+          <h5><%= item.name %></h5>
+        </a>
+        <%= link_to edit_media_item_path(item, bundl_id: @bundl.id) do %>
+          <i id="mediaItemEditIcon" class="far fa-edit link-to-text-color ml-3"></i> 
+        <% end %>
+      </div>
+      <div class="d-flex justify-content-end">
+        <%= link_to '<i class="far fa-trash link-to-text-color"></i>'.html_safe, item, method: :delete, data: { confirm:
+          'Are you sure?' } %>
+      </div>
+    </div>
+    <p class="mb-1"><%= sanitize(item.description) %></p>
+    <div class="d-flex w-100 justify-content-between">
+      <small><%= item.source %></small>
+      <small> Added on <%= item.updated_at.strftime("%B %d") %></small>
+    </div>
+  </li>
+  <% end %>
+</div>
+
+
+    
 <br />
 
-<%= link_to 'New Media Item', new_media_item_path(bundl_id: @bundl.id) %> | <%=
-link_to 'Edit bundl', edit_bundl_path(@bundl) %> 
+
+
