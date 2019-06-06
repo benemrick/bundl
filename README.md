@@ -1,4 +1,4 @@
-# bundl
+# bundl - social bookmarking and resource management
 
 bundle is a resource management tool that makes it easier to collect and access related information. Store your favorite sites, articles, videos and other media in organized 'bundls". Access saved information across the Internet from one location and never lose valueable online resources!
 
